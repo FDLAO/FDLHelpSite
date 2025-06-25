@@ -1,0 +1,458 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    height: 8vh;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1001;
+}
+
+
+.logo img{
+  width:120px;
+  height:85px;
+}
+.menu-toggle {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.open {
+    transform: rotate(90deg);
+    opacity: 0.7;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 2vw;
+    white-space: nowrap;
+    position: relative;
+    padding: 3.0vh 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    position: relative;
+    z-index: 1;
+    
+
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.nav-links li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+    z-index: 0;
+}
+
+.nav-links li:hover::before {
+    width: 100%;
+}
+
+.nav-links li:not(:hover)::before {
+    width: 0;
+    transition: width 0.3s ease;
+    right: 0;
+    left: auto;
+}
+
+.nav-menu {
+    display: none;
+    position: fixed;
+    top: 8vh;
+    right: 0;
+    width: 50%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.menu-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-links li {
+    margin: 1vh 0;
+    white-space: nowrap;
+    position: relative;
+}
+
+.menu-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    padding: 1vh 2vw;
+    position: relative;
+    z-index: 1;
+}
+
+.menu-links a:hover {
+    text-decoration: underline;
+}
+
+.menu-links a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+    z-index: 0;
+}
+
+.menu-links a:hover::before {
+    width: 100%;
+}
+
+.menu-links a:not(:hover)::before {
+    width: 0;
+    transition: width 0.3s ease;
+    right: 0;
+    left: auto;
+}
+
+.nav-menu.active {
+    display: block;
+    animation: spawnMenu 0.3s ease-out forwards;
+}
+
+@keyframes spawnMenu {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hideMenu {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.header {
+    width: 100%;
+    height: 70vh;
+    background-color: #000000;
+    position: relative;
+    text-align: center;
+}
+
+.header video {
+    height: 100%;
+    object-fit: cover;
+}
+
+.main-content {
+    width: 100%;
+    min-height: calc(100vh - 50px - 8vh - 50vh - 30vh);
+    background-color: #0c1624;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 40px;
+}
+
+.blockquote-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #fff;
+    margin-top: 40px;
+    position: relative;
+    left: calc((100% - 80%) / 2);
+    width: 80%;
+}
+
+.image-placeholder {
+    width: 600px;
+    background-image:url("https://www.firstinspires.org/sites/all/themes/first/assets/images/resource_library_icons/first.png");
+    height: 300px;
+    border-radius: 20px;
+    border:5px solid #fff;;
+    margin-right: 30px;
+}
+
+.quote-text {
+    font-size: 2.5rem;
+    margin: 0;
+    font-style: italic;
+    max-width: calc(100% - 330px);
+    padding-right: 20px;
+    line-height: 1.2;
+}
+
+.impact-section {
+    padding: 20px 0;
+}
+
+.impact-container {
+    background-color: #0c1624;
+    border: 5px solid #fff;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 20px;
+    margin: 20px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #fff;
+}
+
+.impact-text {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.impact-text h2 {
+    margin: 0 0 20px 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+.impact-text p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    line-height: 1;
+    text-align: left;
+}
+
+.impact-text strong {
+    font-size: 2em;
+    display: block;
+    margin: 5px 0;
+    text-align: left;
+}
+
+#map-container {
+    width: 100%;
+    height: 300px;
+    background-color: #ccc;
+    border: 2px solid #fff;
+    border-radius: 0;
+}
+
+#map{
+  width: 100%;
+  height:300px;
+}
+
+.news-section-header {
+    background-color: #f8f3ef;
+    color: #6b5749;
+    text-align: center;
+    padding-top: 5vh;
+    margin: 0;
+    font-size: 3em;
+}
+
+.news-section {
+    width: 100%;
+    height: 60vh;
+    background-color: #f8f3ef;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+.news-article-placeholder {
+    width: 21%; 
+    height: 70%;
+    background-color: #dbd2cc;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    margin: 0 10px;
+    margin-top: 10vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-image-placeholder {
+    width: 100%;
+    height: 45%;
+    background-color: #fff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-title {
+    margin: 10px;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #6b5749;
+}
+
+.news-description {
+    margin: 0 10px 10px;
+    text-align: center;
+    font-size: 1em;
+    color: black;
+}
+
+.hover-image-placeholder {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.5);
+    content: url("https://www.firstinspires.org/sites/all/themes/first/assets/images/resource_library_icons/first.png");
+    border: 1px solid #fff;
+}
+
+.news-article-placeholder:hover .news-title,
+.news-article-placeholder:hover .news-description {
+    text-decoration: underline;
+}
+
+.news-article-placeholder:hover .news-image-placeholder {
+    background-color: rgba(200, 150, 200, 0.7);
+}
+
+.news-article-placeholder:hover .hover-image-placeholder {
+    display: block;
+    bottom:55%;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    min-height: 120px;
+}
+.footer-section {
+    margin: 10px;
+    margin-left: 20px;
+}
+.footer-section h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.footer-section a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+.footer-bottom {
+    border-top: 4px solid #999;
+    padding-top: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    width: 80%;
+}
+.logo-placeholder {
+    width: 300px;
+    height: 150px;
+    margin-right: 20px;
+    margin-top: 0;
+    margin-left: 20px;
+    content: url("https://firstdeanslist.org/assets/FIRST/FIRST-Alumni-Reverse-h.svg");
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+    }
+    .nav-menu {
+        display: none;
+    }
+    .nav-menu.active {
+        display: block;
+    }
+    .nav-links li {
+        margin: 1vh 0;
+    }
+    .nav-links a {
+        display: block;
+        padding: 1vh 2vw;
+    }
+    .news-section {
+        flex-direction: column;
+        align-items: center;
+        height:auto;
+    }
+    .news-article-placeholder {
+        width: 70%;
+        height: 300px;
+    }
+    .news-image-placeholder {
+        height: 45%;
+    }
+    .news-article-placeholder:last-child {
+        margin-bottom: 0;
+    }
+}
