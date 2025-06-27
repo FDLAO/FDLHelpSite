@@ -30,7 +30,7 @@ function iterateImage() {
         imageIndex.textContent = `${currentImageIndex + 1} / ${imagePaths.length}`;
         currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
     } catch (error) {
-        console.error('Error rotating image:', error);
+        console.error('Error iterating image:', error);
     }
 }
 
@@ -41,31 +41,12 @@ function startRotation() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (iteratingImage && imagePaths.length > 0) {
-        iterateImage(); // Load first image immediately
+        iterateImage();
         startRotation();
     } else {
-        console.error('Rotating image element or image paths not ready');
+        console.error('Iterating image element or paths not ready');
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
