@@ -1,6 +1,72 @@
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
+const iteratingImage = document.getElementById('iterating-image');
+const imageIndex = document.querySelector('.image-index');
+
+const imagePaths = [
+    'Media/Photos_To_Iterate/cow.jpg',
+    'Media/Photos_To_Iterate/sheep.jpg',
+    'Media/Photos_To_Iterate/pig.jpg',
+    'Media/Photos_To_Iterate/sheep.jpg'
+];
+
+let currentImageIndex = 0;
+let intervalId = null;
+
+function iterateImage() {
+    if (!iteratingImage || !imageIndex) {
+        console.error('One or more DOM elements not found');
+        return;
+    }
+
+    if (imagePaths.length === 0) {
+        console.error('No image paths defined');
+        return;
+    }
+
+    try {
+        iteratingImage.src = imagePaths[currentImageIndex]; 
+        imageIndex.textContent = `${currentImageIndex + 1} / ${imagePaths.length}`;
+        currentImageIndex = (currentImageIndex + 1) % imagePaths.length;
+    } catch (error) {
+        console.error('Error rotating image:', error);
+    }
+}
+
+function startRotation() {
+    if (intervalId) clearInterval(intervalId); 
+    intervalId = setInterval(iterateImage, 3000); 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (iteratingImage && imagePaths.length > 0) {
+        iterateImage(); // Load first image immediately
+        startRotation();
+    } else {
+        console.error('Rotating image element or image paths not ready');
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     menuToggle.classList.toggle('open');
